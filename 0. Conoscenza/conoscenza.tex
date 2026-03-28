@@ -1,0 +1,120 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath, amssymb, amsfonts, bm}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{caption}
+\usepackage{hyperref}
+
+\title{\centering Studio matematico sulla coscienza umana \\ Legge 0: Legge della Conoscenza}
+\author{Autore: Giuseppe Carlino}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Premessa}
+
+La \textbf{Legge della Conoscenza} costituisce la base fondamentale per comprendere la dinamica della coscienza. Essa stabilisce una relazione tra il \textit{tempo vissuto} $t$ e la \textit{conoscenza} $k$ accumulata dall’individuo. In questo contesto, la conoscenza rappresenta l’insieme delle informazioni integrate attraverso l’esperienza, e cresce in funzione del tempo, ma non in modo lineare: il ritmo di apprendimento può variare in base a fattori interni (capacità cognitive, attenzione) ed esterni (ambiente, stimoli).
+
+L’obiettivo di questa legge è formalizzare matematicamente come la conoscenza evolve nel tempo, fornendo un fondamento per le leggi successive (Scelta, Volontà, Legge Generale), in modo che tutte le altre dipendano coerentemente dalla dinamica della conoscenza.
+
+\section{Formalizzazione concettuale}
+
+Si introduce la conoscenza $k(t)$ come funzione crescente del tempo vissuto $t$, soggetta a saturazione e perturbazioni:
+
+\begin{equation}
+\frac{dk}{dt} = \alpha(t)\,(k_{\max}-k(t)) + \xi(t),
+\end{equation}
+
+dove:
+\begin{itemize}
+    \item $k(t)$ è il livello di conoscenza all’istante $t$,
+    \item $k_{\max}$ è il limite teorico massimo della conoscenza accumulabile,
+    \item $\alpha(t)>0$ è il coefficiente di apprendimento istantaneo, che può dipendere dal tempo e dalle circostanze,
+    \item $\xi(t)$ rappresenta perturbazioni esterne o interne che influenzano l’acquisizione della conoscenza (ad esempio distrazioni, stimoli imprevisti).
+\end{itemize}
+
+Questa equazione è una versione generalizzata della crescita logistica, arricchita da fattori perturbativi che introducono variabilità concettuale.
+
+\subsection{Forma vettoriale compatta}
+
+Se consideriamo più ambiti di conoscenza indipendenti, ad esempio $n$ campi di esperienza $k_i(t)$, possiamo raggrupparli in un vettore \(\bm{k}(t) \in \mathbb{R}^n\):
+
+\[
+\bm{k} = 
+\begin{pmatrix} k_1 \\ k_2 \\ \vdots \\ k_n \end{pmatrix}, \quad
+\bm{k}_{\max} = 
+\begin{pmatrix} k_{\max,1} \\ k_{\max,2} \\ \vdots \\ k_{\max,n} \end{pmatrix}, \quad
+\bm{\xi} = 
+\begin{pmatrix} \xi_1 \\ \xi_2 \\ \vdots \\ \xi_n \end{pmatrix}.
+\]
+
+La dinamica generalizzata diventa:
+
+\begin{equation}
+\frac{d \bm{k}}{dt} = \text{diag}(\bm{\alpha}(t)) \, (\bm{k}_{\max} - \bm{k}) + \bm{\xi}(t),
+\end{equation}
+
+dove $\text{diag}(\bm{\alpha}(t))$ è la matrice diagonale dei coefficienti di apprendimento per ciascun ambito.
+
+% Commento: diag() permette di applicare vettori di apprendimento diversi ad ogni dimensione, elegante per notazione lineare
+
+\section{Diagramma concettuale}
+
+\textbf{Crescita concettuale della conoscenza nel tempo}:
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=14cm, height=8cm,
+    xlabel={$t$},
+    ylabel={$k(t)$},
+    grid=major,
+    tick label style={font=\small},
+]
+
+% Curva di conoscenza con saturazione e perturbazione
+\addplot[thick, blue, domain=0:10, samples=200] 
+    {3*(1-exp(-0.3*x)) + 0.2*sin(deg(2*x))};
+\addlegendentry{Conoscenza $k(t)$}
+
+% Linea limite massimo
+\addplot[red, thick, dashed] coordinates {(0,3) (10,3)};
+\addlegendentry{Limite $k_{\max}$}
+
+\node at (axis cs:10,3.1) [anchor=south west] {$k_{\max}$};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\caption*{La curva blu rappresenta l’evoluzione concettuale della conoscenza nel tempo, soggetta a perturbazioni $\xi(t)$. La linea rossa tratteggiata indica il limite massimo teorico $k_{\max}$.}
+
+\section{Interpretazione e implicazioni}
+
+La Legge della Conoscenza stabilisce che:
+
+\begin{enumerate}
+    \item La conoscenza cresce con il tempo, ma non in modo lineare: l’apprendimento è soggetto a saturazione e variabilità.
+    \item Le perturbazioni $\xi(t)$ modellano fattori imprevedibili, come distrazioni, nuovi stimoli, cambiamenti ambientali.
+    \item La conoscenza $k(t)$ diventa la base di tutte le decisioni successive: la scelta dipenderà dal livello di conoscenza e dalla sua distribuzione nei vari campi $k_i(t)$.
+    \item La complessità della conoscenza aumenta con il numero di ambiti $n$: maggiore $n$, maggiore la dimensionalità del sistema.
+    \item Questa legge fornisce un legame fondamentale con la Legge del Tempo, perché il tempo vissuto è la variabile indipendente da cui dipende l’acquisizione della conoscenza.
+\end{enumerate}
+
+\section{Relazione con le leggi successive}
+
+\begin{itemize}
+    \item La \textbf{Legge del Tempo} modellerà come il tempo stesso evolve in funzione della coscienza e della memoria accumulata.
+    \item La \textbf{Legge della Scelta} dipenderà dal livello di conoscenza: la possibilità di scegliere coerentemente aumenta con la conoscenza.
+    \item La \textbf{Legge della Volontà} dipenderà da tempo, conoscenza e scelta, rappresentando la capacità della coscienza di agire coerentemente.
+    \item La \textbf{Legge Generale} (quadristato) integrerà tutti e quattro gli stati, mostrando come la coscienza umana sia un sistema complesso e interconnesso, soggetto a perturbazioni interne ed esterne.
+\end{itemize}
+
+\end{document}

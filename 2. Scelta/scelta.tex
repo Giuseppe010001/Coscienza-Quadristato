@@ -1,0 +1,76 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath, amssymb, bm}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{caption}
+\usepackage{hyperref}
+
+\title{\centering Studio matematico sulla coscienza umana \\ Legge 2: Legge della Scelta}
+\author{Autore: Giuseppe Carlino}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Premessa}
+La \textbf{Legge della Scelta} descrive come la coscienza umana decida tra alternative possibili.  
+La capacità decisionale dipende dagli stati già definiti: il \textbf{tempo percepito} $t_c$ (Legge 1) e la \textbf{conoscenza accumulata} $\bm{k}(t)$ (Legge 0).  
+
+\section{Formalizzazione concettuale}
+La scelta $s \in [0,1]$ dipende dalla conoscenza e dal tempo percepito:
+\[
+s(t) = \frac{1}{1 + \exp[-\sigma (\bm{k}(t) - \bm{k}_0(t_c)) + \bm{\xi}_s(t)]}.
+\]
+
+\subsection{Forma differenziale}
+\[
+\frac{ds}{dt} = \sigma s (1-s)(\bm{k}(t)-\bm{k}_0(t_c)) + \bm{\eta}_s(t).
+\]
+
+\subsection{Sistema combinato conoscenza-tempo-scelta}
+\[
+\begin{cases}
+\displaystyle \frac{d \bm{k}}{dt} = \bm{\alpha}(t) \circ (\bm{k}_{\max}-\bm{k}) + \bm{\xi}_k(t)\\
+\displaystyle \frac{dt_c}{dt} = 1 + \beta \frac{\|\bm{k}(t)\|}{\|\bm{k}_{\max}\|}\\
+\displaystyle \frac{ds}{dt} = \sigma s (1-s)(\|\bm{k}(t)\| - \|\bm{k}_0(t_c)\|) + \bm{\eta}_s(t)
+\end{cases}
+\]
+
+\section{Diagramma concettuale 2D}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm, height=8cm,
+    xlabel={$t_c$},
+    ylabel={$s$},
+    grid=major
+]
+\addplot[blue, thick, domain=0:10, samples=200] {1/(1 + exp(-0.5*(x-5)))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\caption*{Curva concettuale della scelta $s$ in funzione del tempo percepito $t_c$.}
+
+\section{Interpretazione e implicazioni}
+\begin{enumerate}
+\item La capacità decisionale dipende dalla conoscenza accumulata e dal tempo percepito.
+\item La presenza di perturbazioni $\bm{\eta}_s(t)$ rappresenta l’incertezza del processo decisionale.
+\item La scelta è guidata dalla conoscenza accumulata e non precede l’apprendimento.
+\item Sistemi artificiali rigidi possono simulare decisioni, ma non possiedono retroazione dinamica.
+\item Questo modello prepara la base per la Legge della Volontà.
+\end{enumerate}
+
+\section{Relazione con le altre leggi}
+\begin{itemize}
+\item La Legge 1 fornisce $t_c$ e $\bm{k}(t)$ come input alla scelta.
+\item La Legge 3 riceverà $s(t)$ insieme agli altri stati per determinare l’azione volontaria.
+\item La Legge Generale integrerà $t_c$, $\bm{k}$, $s$ e la volontà $w$.
+\end{itemize}
+
+\end{document}

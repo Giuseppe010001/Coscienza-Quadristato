@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath, amssymb, bm}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes}
+
+\title{\centering Modello integrato della Coscienza Umana \\ Teoria Quadristato}
+\author{Autore: Giuseppe Carlino}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Schema concettuale integrato}
+
+\begin{center}
+\begin{tikzpicture}[node distance=2.5cm, every node/.style={align=center, font=\small}]
+    % Nodi principali
+    \node[draw, rectangle, fill=blue!20] (tempo) {Legge 1\\Tempo percepito $t_c$};
+    \node[draw, rectangle, fill=green!20, right=of tempo] (conoscenza) {Legge 0\\Conoscenza $k$};
+    \node[draw, rectangle, fill=orange!20, below=of conoscenza] (scelta) {Legge 2\\Scelta $s$};
+    \node[draw, rectangle, fill=purple!20, left=of scelta] (volonta) {Legge 3\\Volontà $w$};
+
+    % Frecce principali (interazioni)
+    \draw[->, thick] (tempo) -- (conoscenza) node[midway, above] {influenza crescita};
+    \draw[->, thick] (conoscenza) -- (scelta) node[midway, right] {guida decisioni};
+    \draw[->, thick] (scelta) -- (volonta) node[midway, below] {trasforma in azione};
+    \draw[->, thick] (volonta) -- (scelta) node[midway, left] {retroazione};
+
+    % Retroazione tempo
+    \draw[->, thick, dashed] (conoscenza.north) .. controls +(up:2cm) and +(up:2cm) .. (tempo.north) 
+        node[midway, above] {influenza percezione};
+
+    % Perturbazioni
+    \node[draw, ellipse, fill=red!20, above=of tempo] (perturbazioni) {Perturbazioni $\eta$};
+    \draw[->, thick, dotted] (perturbazioni) -- (tempo);
+    \draw[->, thick, dotted] (perturbazioni) -- (conoscenza);
+    \draw[->, thick, dotted] (perturbazioni) -- (scelta);
+    \draw[->, thick, dotted] (perturbazioni) -- (volonta);
+
+    % Legge generale (quadristato)
+    \node[draw, rounded rectangle, thick, fill=yellow!20, below=of volonta, minimum width=10cm] (quadristato) {Legge 4\\Coscienza Quadristato\\$\mathbf{X}=(t_c, k, s, w)$};
+    \draw[->, thick, dashed] (tempo.south) -- (quadristato.north);
+    \draw[->, thick, dashed] (conoscenza.south) -- (quadristato.north);
+    \draw[->, thick, dashed] (scelta.south) -- (quadristato.north);
+    \draw[->, thick, dashed] (volonta.south) -- (quadristato.north);
+\end{tikzpicture}
+\end{center}
+
+\section*{Legenda concettuale}
+\begin{itemize}
+    \item Rettangoli colorati: leggi individuali della coscienza.
+    \item Frecce continue: flussi principali e retroazioni tra stati.
+    \item Frecce tratteggiate: retroazione globale verso il modello quadridimensionale.
+    \item Frecce puntinate rosse: perturbazioni interne ed esterne che influenzano ogni stato.
+    \item Rettangolo giallo: rappresenta la Legge Generale (Quadristato), integrando tutti e quattro gli stati.
+\end{itemize}
+
+\end{document}
