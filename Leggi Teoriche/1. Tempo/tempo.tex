@@ -1,0 +1,109 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath, amssymb, amsfonts, bm}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{caption}
+\usepackage{hyperref}
+
+\title{\centering Studio matematico sulla coscienza umana \\ Legge 1: Legge del Tempo}
+\author{Autore: Giuseppe Carlino}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Premessa}
+
+La \textbf{Legge del Tempo} descrive il modo in cui il tempo vissuto dall’individuo $t$ si integra con la conoscenza $\bm{k}$ accumulata (Legge 0) per influenzare la coscienza.  
+Il tempo non è una semplice variabile lineare, ma uno stato dinamico soggetto a accelerazioni, decelerazioni e retroazioni dovute alla memoria e alla percezione della conoscenza.  
+
+Questa legge funge da fondamento per le leggi successive: il tempo accumulato $t$ determina la crescita della conoscenza $\bm{k}(t)$, condiziona la capacità di scelta e influisce sulla volontà.
+
+\section{Formalizzazione concettuale}
+
+Si considera che il tempo percepito dalla coscienza $t_c$ possa differire dal tempo oggettivo $t$ in funzione della conoscenza:
+
+\begin{equation}
+\frac{dt_c}{dt} = 1 + \beta \frac{\|\bm{k}(t)\|}{\|\bm{k}_{\max}\|},
+\end{equation}
+
+dove:
+\begin{itemize}
+    \item $t$ è il tempo oggettivo misurabile;
+    \item $t_c$ è il tempo soggettivo percepito dalla coscienza;
+    \item $\bm{k}(t)$ è il vettore della conoscenza accumulata;
+    \item $\bm{k}_{\max}$ è il limite massimo di conoscenza in ciascun ambito;
+    \item $\beta$ regola quanto la percezione del tempo sia influenzata dalla conoscenza.
+\end{itemize}
+
+Questa equazione mostra che la percezione del tempo accelera con l’aumento della conoscenza: più un individuo sa, più “rapido” appare il tempo interno.
+
+\subsection{Sistema dinamico integrato}
+
+Combinando la Legge 0 (Conoscenza) e la Legge del Tempo, otteniamo un sistema dinamico:
+
+\[
+\begin{cases}
+\displaystyle \frac{d \bm{k}}{dt} = \text{diag}(\bm{\alpha}(t))\, (\bm{k}_{\max}-\bm{k}) + \bm{\xi}(t),\\[1mm]
+\displaystyle \frac{dt_c}{dt} = 1 + \beta \frac{\|\bm{k}(t)\|}{\|\bm{k}_{\max}\|}.
+\end{cases}
+\]
+
+Questo sistema evidenzia la retroazione: la conoscenza influenza la percezione del tempo, e il tempo vissuto regola la crescita della conoscenza.
+
+\section{Diagramma concettuale}
+
+\textbf{Percezione del tempo in funzione della conoscenza:}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=14cm, height=8cm,
+    xlabel={$t$ (tempo oggettivo)},
+    ylabel={$t_c$ (tempo percepito)},
+    grid=major,
+    tick label style={font=\small},
+]
+
+% Curva di tempo percepito con perturbazioni simulate
+\addplot[thick, blue, domain=0:10, samples=200] 
+    {x + 3*(1-exp(-0.3*x)) + 0.2*rand}; 
+\addlegendentry{$t_c(t)$ percezione tempo}
+
+% Linea diagonale tempo lineare
+\addplot[red, thick, dashed] coordinates {(0,0) (10,10)};
+\addlegendentry{tempo lineare $t$}
+
+\node at (axis cs:10,10.5) [anchor=south west] {tempo lineare};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\caption*{La curva blu mostra come la percezione del tempo $t_c$ accelera con la conoscenza accumulata $\bm{k}(t)$. La linea rossa tratteggiata rappresenta il tempo lineare oggettivo.}
+
+\section{Interpretazione e implicazioni}
+
+\begin{enumerate}
+    \item Il tempo percepito dalla coscienza non è lineare: cresce in funzione della conoscenza accumulata.
+    \item La legge introduce retroazioni: la conoscenza influenza il tempo percepito, creando un sistema dinamico interconnesso.
+    \item Stabilisce la base temporale per la Legge della Scelta, poiché la capacità decisionale dipende dalla quantità di tempo percepito e dalla conoscenza.
+    \item Perturbazioni $\bm{\xi}(t)$ e variazioni di $\bm{\alpha}(t)$ modellano la complessità della crescita cognitiva e temporale.
+    \item Sistemi artificiali, come robot, non possiedono una percezione soggettiva del tempo: la loro "coscienza temporale" coincide con il tempo lineare $t$, mostrando un limite fondamentale rispetto agli esseri umani.
+\end{enumerate}
+
+\section{Relazione con le leggi successive}
+
+\begin{itemize}
+    \item La \textbf{Legge della Scelta} utilizzerà $t_c$ e $\bm{k}(t)$ per modellare la capacità decisionale.
+    \item La \textbf{Legge della Volontà} dipenderà da $t_c$, $\bm{k}(t)$ e dalle scelte effettuate, rappresentando la capacità di agire.
+    \item La \textbf{Legge Generale} (quadristato) integrerà tutti gli stati, mostrando come la coscienza umana sia un sistema complesso, multidimensionale e soggetto a retroazioni e perturbazioni.
+\end{itemize}
+
+\end{document}
