@@ -1,1 +1,1 @@
-Proposta di un nuovo modello descrittivo della coscienza.
+Proposta di un nuovo modello descrittivo della coscienza (umana).
